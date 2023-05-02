@@ -1,0 +1,53 @@
+﻿@model IEnumerable<NewInvoice.Models.invoice>
+
+@{
+    ViewBag.Title = "myinvoice";
+}
+
+<h2>myinvoice</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.state)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.creator.id)
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.state)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.creator.id)
+        </td>
+        <td>
+          <a href="~/my/Editmyinvoice?numinvoice=@item.invoicenumber">
+            <h3>Edit</h3>
+          </a>
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,26 @@
+﻿@model IList<NewInvoice.Models.approver>
+
+@{
+    ViewBag.Title = "Requst";
+}
+
+<h2>Requst</h2>
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="col-sm-4">
+            <h3>invoice : @item.invoice.invoicenumber </h3>
+            <h3>invoice value : @item.invoice.value </h3>
+            <h3>Decision : @item.decision </h3>
+            <h3>currency  : @item.invoice.currency.symbol </h3>
+
+            <a href="~/my/accept/@item.id">
+                <input type="button" value="accept" />
+            </a>
+            <a href="~/my/reject/@item.id">
+                <input type="button" value="reject" />
+            </a>
+        </div>
+    }
+</div>

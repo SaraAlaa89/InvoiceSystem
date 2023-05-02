@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Addbill";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <label>Invoicenumber</label>  <input type="text" name="invoicenumber" />
+    <br />
+    <label>Value</label>          <input type="number" name="value" />
+    <br />
+    <label>Description</label>    <input type="text" name="Description" />
+    <br />
+    <label>Currency</label>
+    <select name="currencies">
+        @{foreach (var item in ViewBag.currencies)
+            {
+                <option value="@item.symbol">@item.symbol (@item.name)</option>
+            }
+        }
+    </select>
+    <br />
+    <label>Vendor</label>
+    <select name="Vendors">
+        @{foreach (var item in ViewBag.vendors)
+            {
+                <option value="@item.vendornumber"> (@item.name)</option>
+            }
+        }
+    </select>
+
+    <br />
+    <label>Purchase Order</label>
+    <select name="purchaseorders">
+        @{foreach (var item in ViewBag.purchaseorders)
+            {
+                <option value="@item.ordernumber"> (@item.ordernumber)</option>
+            }
+        }
+    </select>
+    <br />
+    <br />
+    <label>Projects</label>
+    <select name="projects">
+        @{foreach (var item in ViewBag.projects)
+            {
+                <option value="@item.projectnumber"> (@item.projectnumber)</option>
+            }
+        }
+    </select>
+    <br />
+    <label>document</label><input type="file" name="files" multiple />
+    <br />
+    <label>managers</label>
+    <select name="mangers" multiple="true">
+        @{foreach (var item in ViewBag.manger)
+            {
+                <option value="@item.id"> (@item.name) </option>
+            }
+        }
+    </select>
+    <br />
+
+    <input type="submit" value="send" />
+</form>
